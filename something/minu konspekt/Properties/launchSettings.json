@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "minu konspekt": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
