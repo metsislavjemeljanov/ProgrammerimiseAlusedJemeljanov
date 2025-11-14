@@ -213,50 +213,6 @@ namespace minu_konspekt
 				int jem = nimi1 / nimi2;
 				Console.WriteLine(jem);
 
-				//4 parrool, if ja string andmetüüp
-				Console.WriteLine("Programmi edasiseks tööks sisesta palun parool`:");
-				string password = Console.ReadLine();
-
-				if (password == "simsalabim")
-				{
-					Console.WriteLine("Parool om õige, aarete laegas avaneb");
-				}
-				else if (password == "saatana" || password == "1234")
-				{
-					Console.WriteLine("Parool on sobimatu, palun mingi muu");
-				}
-				else
-				{
-					Console.WriteLine("Parool on vale, proovi uuesti");
-				}
-
-				//5 värvituvastus
-				Console.WriteLine("Milline värv sulle kõige rohkem meeldib?");
-				string favouritecolour = Console.ReadLine():
-			if (favouritecolour == "punane")
-				{
-					Console.BackgroundColor = ConsoleColor.Red;
-				}
-				if (favouritecolour == "oranz")
-				{
-					Console.WriteLine("Kahjuks oranzi ei ole");
-				}
-				if (favouritecolour == "kollane")
-				{
-					Console.BackgroundColor = ConsoleColor.Yellow;
-				}
-				if (favouritecolour == "rohaline")
-				{
-					Console.BackgroundColor = ConsoleColor.Green;
-				}
-				else
-				{
-					Console.WriteLine("Värvi ei yunne");
-				}
-				Console.WriteLine("Värv muudetud!");
-
-
-
 				/*
 				int arv1 = 100; // siin om arv 100
 				float arv2 = 25.5;
