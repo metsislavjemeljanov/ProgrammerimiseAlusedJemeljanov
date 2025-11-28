@@ -333,9 +333,30 @@ namespace minu_konspekt
 					double korrutamine = 1 * 2; //korrutamine, kus teine arv korrutatakse esimese arvu kordi.
 					double jagamine = 1 / 2; //jagamine, esimene arv jagatakse teise arvuga.
 					double astendamine = Math.Pow(2, 2) //astendamine, esimine arv asrendatakse teisega
+					double juurimine = Math.sqrt(2); //ruutjuur, parametrina juuritav arv'
 
+			Math.Round(newD); //Moodulist "MATH" kutsutakse esile punkti abil meetod "Round", sulgude vahel on esimese parameetrina
+							  //ümardatav
 
-					double juurimine = Math.sqrt(2); //ruutjuur, parametrina juuritav arv
+				double newPI = Math.PI; //Moodulist "Math" kustutakse punkti abil esilese kaitstud väärtus, PI, mis väljndab mate
+										//maatiulist pi-d ja seda saab kasutada nagu tavaline arv.
+
+			//Castimine on viis, kuidas ühest andmetüübist teist saada, Castmist ennast on kahte eri liiki - Automaatne ja manuaalne
+			//Automaatne castmine toimub siis, kui teisendatakse väiksemast andmetüübist suuremasse, aga manuaalselt
+			// on vaja castida siis, kui üritame suuremast andmetüübist väiksemat saada. Manuaalne castmine käib nii, et
+			//sihtmuutuja võrdusmäregi taga oleva muutuja nimetuse ette, pannakse sulgudes soovitava andmetüübi nimetus.
+
+			double newData1 = 2.22d; //tekitame, või on kusklik olemas, siuure mahuga andmed muutujas "newData1" kus on tegu double
+									 //andmetüübiga
+			float datafloat = (float)newData1; //"(float" teisendab double tüüpi andmed float tüüpi andmeteks.
+			long data1long = (long)newData1; //"(long)" teisendab double tüüpi andmed float s tüüpi andmiteks
+			int data1Int = (int)newData1; //"(int)" teisendab double tüüpi andmed täisarvu admeteks tüüpi andmetks,
+			char data1Cgar = (char)newData1; //"(char)" teisendab double tüüpi andmed char tüüpi andmeteks.
+
+			int backToInt = data1Char; //char andmetüübiks, suuremasse,m int tüüpi andmeteks muutumisel ei ole vaja muutuja ette sulgude panna
+			long backToLog = backToInt; //int andmetüübist, suuremasse, long tüüpi andmeteks teisendamisel, casti panna ei ole vaja
+			float backToFloat = backToLong; //long andmetüübist suuremasse, float tüüpi admeteks teisendamisel, casti panna ei ole vaja.
+			double backToDouble = backToFloat; //float andmetüübist suuremasse, double tüüpi andmeteks teisendamisel, casti panna ei ole vaja
 
 					//muutuja nimed
 					int arv = 0;
