@@ -193,7 +193,7 @@ namespace minu_konspekt
 				Console.BackgroundColor = ConsoleColor.Yellow;
 			}
 			if (favouriteColour == "roheline") ;
-			{
+			
 				Console.BackgroundColor = ConsoleColor.Green;
 				int jagamine = jagatav1 / jagatav2;
 				Console.WriteLine(jagamine);
@@ -257,7 +257,7 @@ namespace minu_konspekt
 
 				//#  - - tünni jaoks:
 				if (sisend == "tunn")
-				{
+				
 					//#  - - - kas kasutaja teab põhja raadius (r) või üõhja läbimõõtu (d):
 					Console.WriteLine("Kas sa tead tünni raadiust R või läbimõõtu D");
 					string rvõid = Console.ReadLione();
@@ -323,6 +323,9 @@ namespace minu_konspekt
 					var x = "abc"; //var on ebamäärese andmetüübiga kohalik muutuja
 					var y = 123;    //ta võib omada ends teisi andmetüüpe
 					const int z = 9; // konstant-tüüpi muutujaid ei saa muuta, nende sisu on read-only
+                    //void - on admetüüp, mida muutuja tekitamisel kasu´tada ei saa. Kaasutatakse ainult meetodite signatuurides väljendamaks et
+					//meetod ei tagasta midagi.
+
 
 					//põhiliseldmatemaatilised tehted
 					int liitme = 1 + 1; //liitmine, kaks arvu liidetakse kokku
@@ -478,8 +481,85 @@ namespace minu_konspekt
 						Console.WriteLine(k);       // töötlustegevus tsükli sees, on muutuja "k" hetkearvu väljakuvamine.
 
 
-				}
 
+
+
+
+            
+        }
+    /* Meetodid */
+
+            // Meetodid on väljakutsustavad koodijupid. Meetodid teostavad tavaliselt mingeid spetsiifilisifunktsioone või tegevusi.
+            // Meetodid lasevad pogrammeerijal taaskasutada oma eelnevalt kirjutatud koodi - write once use many times.
+            // Meetodeid on kahte liiki - Ühed, mis tagastavad mingisuguse töö või tegevuse tagajärjel või tulemusena andmeid, ja teised
+            // ms ei tagasta midagi, kuid omavad siiski mingit tegvust
+
+            // Meetodi sigbatuuur & sele kompositsioon:
+
+            // Meetodi signatuur on kõige esimene rida, mis meetodi tekitamiseks kirjutatakse, niong mis kirjelödab meetodid ennast, ning selle
+            // omadusi.
+            //
+            // Meetodi signatuur koosneb mitmest kinlast äramnäärtud omadusest. Nendeks on juurdepääsu modifikaator, tagatustüüp,
+            // meetodi enda nimi, otenevalt meetodi liigist ka parameetrid mis on sulgude vahel (), ning koodiplkist mis on meetodi isu.
+            //
+            // - Juurdepääsu modifikaator ütlebv ära, kust ja kuidas sed meetodit välja kutsuda või adresseerida saab. Juurdepääsu modi-
+            //   fikaatoreid on tähtsamatest 4-5 tükki.
+            // 1 - public --- meetod on avallik ja kättesaadav ka teisetes klassides, peale selle klassi, kus meetodise asub.
+            // 2 - private --- meetod on saadav ainult selles klassis kus metod ise asub.
+            // 3 - protected --- meetod on saadav ainult sellse klassis kus meetod ise asub jaq klassis mis pärilusega saab
+            //     selle klassi andmed kaasa.
+            // 4 - internal --- meetod on saadav ainult selles klassis ja ainult selles failis.
+            // 5 - static --- vahest bõib olla pandud ka static, see ütleb lihtsalt et see meetod asub siin.
+            //
+            // -Tagastustüüp on meetodi omadus, mis ütleb ära millise tüübiga andmed, meetodi väljakutsumise asukohta tagastatakse, kui üldse.
+            // Andmetüüp, mida tagastada, võib olla ükskõik milline liht- või kominatsioonandmetüüp. Aga kui meetod ei tagasta üldse andmeid
+            // pannakse selle asemelö andmetüübiks "void". Kui meetodil on tagastustüüp mis on midagi muud kui void, on meetodi sees, iga toimiva
+            // koodisunna lõppus kaitstud sõna "return" ütleb, et just see asi on nvaja tagastada. peale returni on alaati mingimuse kindel
+            // muutja, võio tegevuse tulemus, mis tagastatakse meetodi väljakutseasukohta. peale tkäibitatud returni, ei teostata mitte ühtegi
+            // muud meetodis olevalt koodi, sest meetod on leidnud oma tagastaatva onjekti , ning meetodi töö sellel hetkel katkestatakse.
+            // Return on osaliselt ka kui break.
+            //
+            // - Meetodi enda nimi on midagi järgi arendaja meetodid kasutab, kutsub koodis välja, ning meetodi peaks kuvama
+            //üldsõna mida see meetod teeb. Näites meetod nimega "A();" ei ole hea, sest sõna "A" ei ütle progtammeerijale mitte midagi.
+            //Aaga näiteks meetod, nimega "ArvutiArvudKokku();" Ütlegb arenf´dajale ära, mida see meetod teeb. TA ei reaiska oma aega, selle
+            //meetodi enda koodi lugumisele.
+            //
+            // - PArameetrid on need, mis ütlebad, mis meetodil tema tääks vaja on. Parameeter, meetodi signatuuris võib olla teistmoodi
+            //väljendatud, kuion kirjutatud muutja mis on koodi sees, mille jaoks seda kasutada vaja on.
+            //
+            // 1. tüüpi meetod - ei tagasta midagi:
+			
+		     public static void UusMeetod() //Meetodi signatuur, mis pmab juurdepääsumodifikaatorit "publlic", "static" ütleb et ta kuulub sellese
+											//klassi. tagastustüüp on "void" mis ütleb et andmeid meie metod ei tagasta. Päarast omadusi on selle
+											//meetodi nimi "UusMEetod" peale mida on sulud, kus parameetreid ei ole.
+											//pärast signatturi on kodi plokk selle meetodi koodiga, loogeliste sulgude vahel {}
+		     {
+			     Console.WriteLine("Tere"); //antud juhul on meetodi sisuks kuvamine, mooduli "COnsole" abiga, mille seest punkti abil "."
+			                                //adresseerime Console meetodit "WriteLine" ning mille parameetriks on sõne "Tere", parameeter asub
+											//peale meetodi nime olevate sulgude vahel. Lause lõppeb lauselõpumärgiga ";"
+											//See arendaja poold kirjutaatud meetod rohkem koodi ei oma.
+		     }
+
+		// 2. tüppi meetod - tagasta väüärtuse:
+		int[] arvutatavadArvud = new int[] { 67, 69, 420, 9001 }; //Töödeldavad andmed, mis asuvad täisarvumassiivis, muutujanimega
+																  //"ärvutatavadArvud".
+		public static int AtvutaKokku(int[] arvud) //Meetod mille signatuuris on juurdepääsumodifikaator "public", "static" ütleb et ta kuulub
+												   //sellesse klassi, tagastüüp "int" ütleb, et programmis tagastatakse täisarv asukohra
+												   //koodisn kus meetod algselt välja kutsuti. Siis on meetodi nimi "ArvutiKokku", nmimg sulgude
+												   //vahel ootab meetoidtäisarvumassiivi. Sellele massiivile pannakse meetodi siseselt akutine
+												   //nimi "arvud". Meetod ootab esimese parameetri asukohal just arvumassiivi olenemata, mis
+												   //tema muutuja nimi on. Peale signati´uuri on koodiplokk tehtava koodiga
+		{
+			int summa = 0; //tekitasme täisarvuandmetüüpi muutuja nimega "summa", kuhu esialgu omistatakse võrdusmärgi abil arv 0. Lause
+						   //lõppeb lauselõppumärgida ";"
+			foreach (var arv in arvud) //tekkitame "foreach" tsükli, mille kogumikuks on meetodisisene arvudemassiiv nimega "arvud", mille
+									   //iga elemendi ajutise muutja nimi on "arv"
+			{ //peale seda on koodiplokk
+				summa += arv; //muutajale summa omistatakse += märgiga juurde hetkel tsükli kasutuseolev arv. asendab tehtet summa = suma ? arv
+			}
+			return summa; //pärast tsükli töö on lõppu on kaitstud sõna "return" mille järal on muutja "summa", ning tagastatakse täisarv,
+						  //mis asub muutjas summa, meetodi töö lõppeb.
+		     
 		}
 	}
 }
