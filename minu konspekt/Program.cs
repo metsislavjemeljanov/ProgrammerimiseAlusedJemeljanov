@@ -346,6 +346,7 @@ namespace minu_konspekt
 			// on vaja castida siis, kui üritame suuremast andmetüübist väiksemat saada. Manuaalne castmine käib nii, et
 			//sihtmuutuja võrdusmäregi taga oleva muutuja nimetuse ette, pannakse sulgudes soovitava andmetüübi nimetus.
 
+			//Manuaalne Castimine
 			double newData1 = 2.22d; //tekitame, või on kusklik olemas, siuure mahuga andmed muutujas "newData1" kus on tegu double
 									 //andmetüübiga
 			float datafloat = (float)newData1; //"(float" teisendab double tüüpi andmed float tüüpi andmeteks.
